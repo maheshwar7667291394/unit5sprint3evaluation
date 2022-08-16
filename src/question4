@@ -1,0 +1,177 @@
+
+
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use mahesh;
+Database changed
+mysql> create table
+    -> crop table employee;
+Query OK, 4 rows affected (0.96 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> drop table employee;\
+Query OK, 0 rows affected (0.22 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_mahesh |
++------------------+
+| address          |
+| city             |
+| course           |
+| courses          |
+| crop             |
+| joointable       |
+| manager          |
+| manager1         |
+| movie            |
+| movie_rating     |
+| newoffice        |
+| newtable         |
+| office           |
+| person           |
+| student          |
+| student_course   |
+| teachers         |
++------------------+
+17 rows in set (0.04 sec)
+
+mysql> create table employee(Empid varchar(32),Empname varchar(12),department varchar(12),contactno varchar(21),emailid varchar(),Empheadid);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '),Empheadid)' at line 1
+mysql> create table employee(Empid varchar(32),Empname varchar(12),department varchar(12),contactno varchar(21),emailid varchar(12),Empheadid varchar(12));
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> desc employee;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Empid      | varchar(32) | YES  |     | NULL    |       |
+| Empname    | varchar(12) | YES  |     | NULL    |       |
+| department | varchar(12) | YES  |     | NULL    |       |
+| contactno  | varchar(21) | YES  |     | NULL    |       |
+| emailid    | varchar(12) | YES  |     | NULL    |       |
+| Empheadid  | varchar(12) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+6 rows in set (0.07 sec)
+
+mysql> insert into  employee values("1o1",Isha,"E-101","5782348","jgjf@jgjjf","105");
+ERROR 1054 (42S22): Unknown column 'Isha' in 'field list'
+mysql> insert into  employee values("1o1","Isha","E-101","5782348","jgjf@jgjjf","105");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into employee values("102","Priya","E-104","7857547","fjsaj@com",103);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> isert into employee values("103","Neha","E-101","889895449","neha@gmail.com",101);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'isert into employee values("103","Neha","E-101","889895449","neha@gmail.com",101' at line 1
+mysql>  isert into employee values("103","Neha","E-101","889895449","neha@gmail.com","101");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'isert into employee values("103","Neha","E-101","889895449","neha@gmail.com","10' at line 1
+mysql> insert into employee values("103","Neha","E-101","895348","neha@gmail.com","101");
+ERROR 1406 (22001): Data too long for column 'emailid' at row 1
+mysql> insert into employee values("103","Neha","E-101","895348","neha@gil.com","101");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into employee values("104","Rahul","E-102","4838984","Rahul@.com",105);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into employee values("105","Abhishek","E-101","8545093","abhisek@com","101");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select *from employee;
++-------+----------+------------+-----------+--------------+-----------+
+| Empid | Empname  | department | contactno | emailid      | Empheadid |
++-------+----------+------------+-----------+--------------+-----------+
+| 1o1   | Isha     | E-101      | 5782348   | jgjf@jgjjf   | 105       |
+| 102   | Priya    | E-104      | 7857547   | fjsaj@com    | 103       |
+| 103   | Neha     | E-101      | 895348    | neha@gil.com | 101       |
+| 104   | Rahul    | E-102      | 4838984   | Rahul@.com   | 105       |
+| 105   | Abhishek | E-101      | 8545093   | abhisek@com  | 101       |
++-------+----------+------------+-----------+--------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> create table EmpDept;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> create table EmpDept(deptid varchar(12),deptname varchar(12),dept_off varchar(23),depthead varchar(12));
+Query OK, 0 rows affected (0.81 sec)
+
+mysql> desc empdept;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| deptid   | varchar(12) | YES  |     | NULL    |       |
+| deptname | varchar(12) | YES  |     | NULL    |       |
+| dept_off | varchar(23) | YES  |     | NULL    |       |
+| depthead | varchar(12) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> insert into empdept values("E-101","HR","monday","105";)
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+    -> insert into empdept values("E-101","HR","monday","105");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+insert into empdept values("E-101","HR","monday","105")' at line 1
+mysql> insert into empdept values("E-101","HR","monday","105");
+Query OK, 1 row affected (0.19 sec)
+
+mysql> insert into empdept values("E-102","development","tuesday","101");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into empdept values("103","House keeping","saturday","103");
+ERROR 1406 (22001): Data too long for column 'deptname' at row 1
+mysql> insert into empdept values("103","Housekeping","saturday","103");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into empdept values("E-104","sales","sunday","104");
+Query OK, 1 row affected (0.02 sec)
+
+mysql>  insert into empdept values("E-103","Housekeping","saturday","103");
+Query OK, 1 row affected (0.02 sec)
+
+mysql>  insert into empdept values("E-105","purchase","tuesday","104");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select*from empdept;
++--------+-------------+----------+----------+
+| deptid | deptname    | dept_off | depthead |
++--------+-------------+----------+----------+
+| E-101  | HR          | monday   | 105      |
+| E-102  | development | tuesday  | 101      |
+| 103    | Housekeping | saturday | 103      |
+| E-104  | sales       | sunday   | 104      |
+| E-103  | Housekeping | saturday | 103      |
+| E-105  | purchase    | tuesday  | 104      |
++--------+-------------+----------+----------+
+6 rows in set (0.10 sec)
+
+mysql> select *from employee;
++-------+----------+------------+-----------+--------------+-----------+
+| Empid | Empname  | department | contactno | emailid      | Empheadid |
++-------+----------+------------+-----------+--------------+-----------+
+| 1o1   | Isha     | E-101      | 5782348   | jgjf@jgjjf   | 105       |
+| 102   | Priya    | E-104      | 7857547   | fjsaj@com    | 103       |
+| 103   | Neha     | E-101      | 895348    | neha@gil.com | 101       |
+| 104   | Rahul    | E-102      | 4838984   | Rahul@.com   | 105       |
+| 105   | Abhishek | E-101      | 8545093   | abhisek@com  | 101       |
++-------+----------+------------+-----------+--------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select Empname from employee where Empid=(select depthead from empdept where deptname="HR");
++----------+
+| Empname  |
++----------+
+| Abhishek |
++----------+
+1 row in set (0.07 sec)
+
+mysql>
